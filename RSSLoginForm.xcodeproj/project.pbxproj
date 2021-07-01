@@ -11,6 +11,8 @@
 		72BDB875268E654E00A56682 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72BDB874268E654E00A56682 /* Assets.xcassets */; };
 		72BDB878268E654E00A56682 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72BDB876268E654E00A56682 /* LaunchScreen.storyboard */; };
 		72BDB87B268E654E00A56682 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BDB87A268E654E00A56682 /* main.m */; };
+		72BDB88A268E6DCE00A56682 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BDB888268E6DCE00A56682 /* LoginViewController.m */; };
+		72BDB88B268E6DCE00A56682 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72BDB889268E6DCE00A56682 /* LoginViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,9 @@
 		72BDB877268E654E00A56682 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		72BDB879268E654E00A56682 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72BDB87A268E654E00A56682 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		72BDB887268E6DCE00A56682 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		72BDB888268E6DCE00A56682 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		72BDB889268E6DCE00A56682 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +64,9 @@
 				72BDB876268E654E00A56682 /* LaunchScreen.storyboard */,
 				72BDB879268E654E00A56682 /* Info.plist */,
 				72BDB87A268E654E00A56682 /* main.m */,
+				72BDB887268E6DCE00A56682 /* LoginViewController.h */,
+				72BDB888268E6DCE00A56682 /* LoginViewController.m */,
+				72BDB889268E6DCE00A56682 /* LoginViewController.xib */,
 			);
 			path = RSSLoginForm;
 			sourceTree = "<group>";
@@ -121,6 +129,7 @@
 			files = (
 				72BDB878268E654E00A56682 /* LaunchScreen.storyboard in Resources */,
 				72BDB875268E654E00A56682 /* Assets.xcassets in Resources */,
+				72BDB88B268E6DCE00A56682 /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +142,7 @@
 			files = (
 				72BDB86A268E654B00A56682 /* AppDelegate.m in Sources */,
 				72BDB87B268E654E00A56682 /* main.m in Sources */,
+				72BDB88A268E6DCE00A56682 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
