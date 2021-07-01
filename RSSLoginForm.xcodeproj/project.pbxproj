@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		72BDB86A268E654B00A56682 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BDB869268E654B00A56682 /* AppDelegate.m */; };
-		72BDB86D268E654B00A56682 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BDB86C268E654B00A56682 /* SceneDelegate.m */; };
-		72BDB870268E654B00A56682 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BDB86F268E654B00A56682 /* ViewController.m */; };
-		72BDB873268E654B00A56682 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72BDB871268E654B00A56682 /* Main.storyboard */; };
 		72BDB875268E654E00A56682 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72BDB874268E654E00A56682 /* Assets.xcassets */; };
 		72BDB878268E654E00A56682 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72BDB876268E654E00A56682 /* LaunchScreen.storyboard */; };
 		72BDB87B268E654E00A56682 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BDB87A268E654E00A56682 /* main.m */; };
@@ -20,11 +17,6 @@
 		72BDB865268E654B00A56682 /* RSSLoginForm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSLoginForm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72BDB868268E654B00A56682 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		72BDB869268E654B00A56682 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		72BDB86B268E654B00A56682 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
-		72BDB86C268E654B00A56682 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		72BDB86E268E654B00A56682 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		72BDB86F268E654B00A56682 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		72BDB872268E654B00A56682 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		72BDB874268E654E00A56682 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72BDB877268E654E00A56682 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		72BDB879268E654E00A56682 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -63,11 +55,6 @@
 			children = (
 				72BDB868268E654B00A56682 /* AppDelegate.h */,
 				72BDB869268E654B00A56682 /* AppDelegate.m */,
-				72BDB86B268E654B00A56682 /* SceneDelegate.h */,
-				72BDB86C268E654B00A56682 /* SceneDelegate.m */,
-				72BDB86E268E654B00A56682 /* ViewController.h */,
-				72BDB86F268E654B00A56682 /* ViewController.m */,
-				72BDB871268E654B00A56682 /* Main.storyboard */,
 				72BDB874268E654E00A56682 /* Assets.xcassets */,
 				72BDB876268E654E00A56682 /* LaunchScreen.storyboard */,
 				72BDB879268E654E00A56682 /* Info.plist */,
@@ -134,7 +121,6 @@
 			files = (
 				72BDB878268E654E00A56682 /* LaunchScreen.storyboard in Resources */,
 				72BDB875268E654E00A56682 /* Assets.xcassets in Resources */,
-				72BDB873268E654B00A56682 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,24 +131,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72BDB870268E654B00A56682 /* ViewController.m in Sources */,
 				72BDB86A268E654B00A56682 /* AppDelegate.m in Sources */,
 				72BDB87B268E654E00A56682 /* main.m in Sources */,
-				72BDB86D268E654B00A56682 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		72BDB871268E654B00A56682 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				72BDB872268E654B00A56682 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		72BDB876268E654E00A56682 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
