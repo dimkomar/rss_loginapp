@@ -7,6 +7,7 @@
 
 #import "LoginViewController.h"
 
+
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;
 @property (weak, nonatomic) IBOutlet UITextField *loginTextFiled;
@@ -17,7 +18,15 @@
 - (IBAction)passwordEditingDidBegin:(id)sender;
 
 
+@property (weak, nonatomic) IBOutlet UIView *passcode;
 
+@property (weak, nonatomic) IBOutlet UILabel *passcodeLabel;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *passcodeButtons;
+
+
+- (IBAction)passcodeButtonOneAction:(id)sender;
+- (IBAction)passcodeButtonTwoAction:(id)sender;
+- (IBAction)passcodeButtonThreeAction:(id)sender;
 
 - (IBAction)authorizeButtonAction:(id)sender;
 - (void)textFiledStateActive: (id)state;
@@ -40,7 +49,6 @@
     //setup text label
     self.textLabel.adjustsFontSizeToFitWidth = YES;
     
-    
     //setup login textfiled
     self.loginTextFiled.layer.borderColor = blackCoral.CGColor;
     self.loginTextFiled.layer.borderWidth = 1.5;
@@ -50,14 +58,8 @@
     self.passwordTextField.layer.borderColor = blackCoral.CGColor;
     self.passwordTextField.layer.borderWidth = 1.5;
     self.passwordTextField.layer.cornerRadius = 5;
-
-    
-    
-    
-    
     
     //setup button
-    //TODO: -need changed border color hex
     [self.authorizeButton setTitle:@"Authorize" forState:UIControlStateNormal];
     [self.authorizeButton setTitleColor:littleBoyBlue forState:UIControlStateNormal];
     self.authorizeButton.titleLabel.layer.borderColor = littleBoyBlue.CGColor;
@@ -65,11 +67,27 @@
     self.authorizeButton.layer.borderWidth = 1.5;
     self.authorizeButton.layer.cornerRadius = 5;
     
+    //setup passcode view
+    self.passcode.layer.borderColor = blackCoral.CGColor;
+    self.passcode.layer.borderWidth = 1.5;
+    self.passcode.layer.cornerRadius = 5;
+    self.passcode.hidden = YES;
     
+    //setup passcode textLabel
     
+    //setup passcode buttons
+    for (UIButton *value in self.passcodeButtons)
+    {
+        [value setTitleColor:littleBoyBlue forState:UIControlStateNormal];
+        [value setTitleColor:littleBoyBlue forState:UIControlStateNormal];
+        value.layer.borderColor = littleBoyBlue.CGColor;
+        value.layer.borderWidth = 1.5;
+        value.layer.cornerRadius = value.frame.size.height/2;
+        value.layer.masksToBounds = true;
+    }
+ 
     
-    
-    
+
     
     
     
@@ -87,8 +105,13 @@
         (self.passwordTextField.text && self.passwordTextField.text.length > 0))
     {
         //if username and password a correct
-        if ([userName isEqualToString:@"username"] && [passwordTextField isEqualToString:@"password"]){
-            //new contoller should be displayed
+        if ([userName isEqualToString:@"a"] && [passwordTextField isEqualToString:@"a"]){
+
+            self.passcode.hidden = NO;
+            
+
+            
+            
             NSLog(@"круто все верно");
         }
         //incorrect login
@@ -125,6 +148,15 @@
     }
 //create method for action or take it from top
     
+}
+
+- (IBAction)passcodeButtonThreeAction:(id)sender {
+}
+
+- (IBAction)passcodeButtonTwoAction:(id)sender {
+}
+
+- (IBAction)passcodeButtonOneAction:(id)sender {
 }
 
 - (IBAction)passwordEditingDidBegin:(id)sender {
