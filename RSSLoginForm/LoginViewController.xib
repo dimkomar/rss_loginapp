@@ -14,6 +14,7 @@
                 <outlet property="authorizeButton" destination="pXX-lr-DSc" id="O9Q-FH-GhB"/>
                 <outlet property="loginTextFiled" destination="4DM-s7-YCa" id="OUr-pg-nkK"/>
                 <outlet property="passwordTextField" destination="JHS-Yy-aR0" id="Cdg-w3-vrP"/>
+                <outlet property="textLabel" destination="Jrj-O9-Rww" id="ylq-FP-RFZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -23,30 +24,36 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RSSchool" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jrj-O9-Rww">
-                    <rect key="frame" x="101" y="80" width="162.5" height="43"/>
+                    <rect key="frame" x="108" y="80" width="162.5" height="43"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4DM-s7-YCa">
-                    <rect key="frame" x="36" y="203" width="292.5" height="34"/>
+                    <rect key="frame" x="36" y="203" width="306.5" height="34"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="303" id="6XL-tX-AgB"/>
                     </constraints>
                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" keyboardAppearance="light"/>
+                    <textInputTraits key="textInputTraits" keyboardAppearance="light" textContentType="username"/>
+                    <connections>
+                        <action selector="loginEditingDidBegin:" destination="-1" eventType="editingDidBegin" id="Jo1-yZ-Sf0"/>
+                    </connections>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JHS-Yy-aR0">
-                    <rect key="frame" x="36" y="267" width="292.5" height="34"/>
+                    <rect key="frame" x="36" y="267" width="306.5" height="34"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="303" id="eOu-2z-tjN"/>
                     </constraints>
                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" keyboardAppearance="light"/>
+                    <textInputTraits key="textInputTraits" keyboardAppearance="light" textContentType="password"/>
+                    <connections>
+                        <action selector="passwordEditingDidBegin:" destination="-1" eventType="editingDidBegin" id="fPd-HZ-OwZ"/>
+                    </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pXX-lr-DSc">
-                    <rect key="frame" x="110" y="361" width="144.5" height="42"/>
+                    <rect key="frame" x="110" y="361" width="158.5" height="42"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="156" id="5dG-Cl-Pwc"/>
                         <constraint firstAttribute="height" constant="42" id="aFW-JC-v7i"/>
@@ -71,9 +78,9 @@
                 <constraint firstItem="pXX-lr-DSc" firstAttribute="top" secondItem="JHS-Yy-aR0" secondAttribute="bottom" constant="60" id="idJ-zO-RfB"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="4DM-s7-YCa" secondAttribute="trailing" constant="36" id="qNT-pl-FR1"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="pXX-lr-DSc" secondAttribute="trailing" constant="110" id="wXd-hv-W04"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Jrj-O9-Rww" secondAttribute="trailing" constant="101" id="wpj-RP-gP3"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Jrj-O9-Rww" secondAttribute="trailing" constant="108" id="wpj-RP-gP3"/>
                 <constraint firstItem="pXX-lr-DSc" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="110" id="z1g-qs-Jxf"/>
-                <constraint firstItem="Jrj-O9-Rww" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="101" id="zxI-Ga-BvF"/>
+                <constraint firstItem="Jrj-O9-Rww" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="108" id="zxI-Ga-BvF"/>
             </constraints>
             <point key="canvasLocation" x="116" y="120"/>
         </view>
