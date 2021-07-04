@@ -85,23 +85,23 @@
     self.passwordTextField.layer.borderWidth = 1.5;
     self.passwordTextField.layer.cornerRadius = 5;
     
-    //setup button
+    //setup authorize button
     [self.authorizeButton setTitle:@"Authorize" forState:UIControlStateNormal];
     [self.authorizeButton setTitleColor:_color.littleBoyBlue forState:UIControlStateNormal];
     self.authorizeButton.titleLabel.layer.borderColor = _color.littleBoyBlue.CGColor;
     self.authorizeButton.layer.borderColor = _color.littleBoyBlue.CGColor;
     self.authorizeButton.layer.borderWidth = 1.5;
-    self.authorizeButton.layer.cornerRadius = 5;
+    self.authorizeButton.layer.cornerRadius = 10;
     
     //setup passcode view
     self.passcode.layer.borderColor = _color.white.CGColor;
     self.passcode.layer.borderWidth = 1.5;
-    self.passcode.layer.cornerRadius = 5;
+    self.passcode.layer.cornerRadius = 10;
     self.passcode.hidden = YES;
     
     //setup passcode textLabel
     [self.passcodeLabel setText:_passcodeString];
-    
+
     //setup passcode buttons
     for (UIButton *value in self.passcodeButtons)
     {
@@ -205,7 +205,27 @@
 -(void)InformativeAlertWithmsg
 {
     UIAlertController *alertvc = [UIAlertController alertControllerWithTitle: @"Welcome" message: @"You are successfuly authorized!" preferredStyle: UIAlertControllerStyleAlert];
-    UIAlertAction *action = [UIAlertAction actionWithTitle: @"Refresh" style: UIAlertActionStyleDefault handler: nil];
+    UIAlertAction *action = [UIAlertAction actionWithTitle: @"Refresh" style: UIAlertActionStyleDefault handler: ^(UIAlertAction * action) {
+        
+        //should rewrite logic of refresh
+        self.passcode.hidden = YES;
+        self.loginTextFiled.enabled = YES;
+        self.authorizeButton.enabled = YES;
+        self.authorizeButton.layer.opacity = 1.0;
+        self.loginTextFiled.layer.borderColor = _color.blackCoral.CGColor;
+        self.loginTextFiled.layer.opacity = 1.0;
+        self.passwordTextField.enabled = YES;
+        self.passwordTextField.layer.borderColor = _color.blackCoral.CGColor;
+        self.passwordTextField.layer.opacity = 1.0;
+        self.passwordTextField.text = @"";
+        self.loginTextFiled.text = @"";
+        for (UIButton *value in self.passcodeButtons)
+        {
+             value.enabled = YES;
+        }
+        [self.view endEditing:NO];
+        [self viewDidLoad];
+    }];
     alertvc.view.tintColor = [UIColor redColor];
     [alertvc addAction: action];
     [self presentViewController: alertvc animated: true completion: nil];

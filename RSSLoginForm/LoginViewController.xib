@@ -46,7 +46,7 @@
                     </connections>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JHS-Yy-aR0">
-                    <rect key="frame" x="36" y="304" width="303" height="34"/>
+                    <rect key="frame" x="36" y="304" width="306.5" height="34"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="303" id="eOu-2z-tjN"/>
                     </constraints>
@@ -63,9 +63,13 @@
                         <constraint firstAttribute="width" constant="156" id="5dG-Cl-Pwc"/>
                         <constraint firstAttribute="height" constant="42" id="aFW-JC-v7i"/>
                     </constraints>
-                    <state key="normal" title="Authorize">
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="25" maxY="0.0"/>
+                    <state key="normal" title="Authorize" image="user">
                         <color key="titleColor" systemColor="systemBlueColor"/>
                     </state>
+                    <state key="selected" image="user-filled"/>
+                    <state key="highlighted" image="user-filled"/>
                     <connections>
                         <action selector="authorizeButtonAction:" destination="-1" eventType="touchUpInside" id="f5C-GF-lpH"/>
                     </connections>
@@ -96,13 +100,17 @@
                                 <action selector="threeAction:" destination="-1" eventType="touchUpInside" id="SHV-kY-X9V"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oav-ge-f1B">
-                            <rect key="frame" x="105.5" y="15" width="29.5" height="0.0"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="29.5" id="yJd-j5-1ii"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                            <nil key="textColor"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oav-ge-f1B">
+                            <rect key="frame" x="100" y="15" width="40.5" height="21"/>
+                            <attributedString key="attributedText">
+                                <fragment content="1 2 3">
+                                    <attributes>
+                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        <font key="NSFont" size="18" name="SFProText-Regular"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="3" tighteningFactorForTruncation="0.0"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcA-AB-rFT">
@@ -125,6 +133,7 @@
                         <constraint firstAttribute="bottom" secondItem="mXd-zs-cbp" secondAttribute="bottom" constant="15" id="EFh-Xr-Xk5"/>
                         <constraint firstItem="mXd-zs-cbp" firstAttribute="leading" secondItem="4Gl-CO-vS1" secondAttribute="leading" constant="23" id="J8N-Tw-ivg"/>
                         <constraint firstItem="jcA-AB-rFT" firstAttribute="firstBaseline" secondItem="mXd-zs-cbp" secondAttribute="baseline" id="Ny8-ca-T14"/>
+                        <constraint firstItem="oav-ge-f1B" firstAttribute="centerX" secondItem="jcA-AB-rFT" secondAttribute="centerX" id="Pqh-5h-cEB"/>
                         <constraint firstItem="jcA-AB-rFT" firstAttribute="centerX" secondItem="4Gl-CO-vS1" secondAttribute="centerX" id="SUq-ib-qtW"/>
                         <constraint firstItem="jcA-AB-rFT" firstAttribute="baseline" secondItem="t9T-qe-1Rv" secondAttribute="firstBaseline" id="dbd-fJ-3Jq"/>
                         <constraint firstAttribute="trailing" secondItem="t9T-qe-1Rv" secondAttribute="trailing" constant="23" id="gsA-N6-7Wz"/>
@@ -142,6 +151,7 @@
                 <constraint firstItem="JHS-Yy-aR0" firstAttribute="top" secondItem="4DM-s7-YCa" secondAttribute="bottom" constant="30" id="Oic-LX-DQa"/>
                 <constraint firstItem="Jrj-O9-Rww" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="80" id="PTN-KP-ykJ"/>
                 <constraint firstItem="JHS-Yy-aR0" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="36" id="fhZ-eX-ojR"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="JHS-Yy-aR0" secondAttribute="trailing" constant="36" id="lCC-hs-IO8"/>
                 <constraint firstItem="4Gl-CO-vS1" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="69" id="nAx-uj-il1"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="4Gl-CO-vS1" secondAttribute="bottom" constant="50" id="o6M-9j-Fmc"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="4DM-s7-YCa" secondAttribute="trailing" constant="36" id="qNT-pl-FR1"/>
@@ -155,6 +165,8 @@
         </view>
     </objects>
     <resources>
+        <image name="user" width="16" height="16"/>
+        <image name="user-filled" width="16" height="16"/>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
