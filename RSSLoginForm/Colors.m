@@ -22,7 +22,7 @@
         _littleBoyBlueTouchDownBackgroundText = [UIColor colorWithRed: 0.50 green: 0.64 blue: 0.93 alpha: 0.40];
         _white = [UIColor colorWithRed: 1.00 green: 1.00 blue: 1.00 alpha: 1.00];
     }
-
+    
     return self;
 }
 

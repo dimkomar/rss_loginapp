@@ -67,7 +67,7 @@
     [super viewDidLoad];
     
     //set default value
-    _correctUsername = @"login";
+    _correctUsername = @"username";
     _correctPassword = @"password";
     _passcodeString = @"_";
     _correctPasscode = @"1 3 2";
@@ -78,7 +78,7 @@
     // Subscrube on keyboard events
     [self subscribeOnKeyboardEvents];
     [self hideWhenTappedAround];
-
+    
     //setup text label
     self.textLabel.adjustsFontSizeToFitWidth = YES;
     
@@ -87,7 +87,7 @@
     self.loginTextFiled.layer.borderWidth = 1.5;
     self.loginTextFiled.layer.cornerRadius = 5;
     self.loginTextFiled.keyboardType = UIKeyboardTypeASCIICapable;
-
+    
     //setup password textfield
     self.passwordTextField.layer.borderColor = _color.blackCoral.CGColor;
     self.passwordTextField.layer.borderWidth = 1.5;
@@ -102,7 +102,7 @@
     self.authorizeButton.layer.borderColor = _color.littleBoyBlue.CGColor;
     self.authorizeButton.layer.borderWidth = 1.5;
     self.authorizeButton.layer.cornerRadius = 10;
-        
+    
     //setup passcode view
     self.passcode.layer.borderColor = _color.white.CGColor;
     self.passcode.layer.borderWidth = 1.5;
@@ -111,7 +111,7 @@
     
     //setup passcode textLabel
     [self.passcodeLabel setText:_passcodeString];
-
+    
     //setup passcode buttons
     for (UIButton *value in self.passcodeButtons) {
         [value setTitleColor:_color.littleBoyBlue forState:UIControlStateNormal];
@@ -120,7 +120,7 @@
         value.layer.borderWidth = 1.5;
         value.layer.cornerRadius = value.frame.size.height/2;
     }
-
+    
     self.loginTextFiled.delegate = self;
     self.passwordTextField.delegate = self;
 }
@@ -178,7 +178,7 @@
     else if ((self.loginTextFiled.text && self.loginTextFiled.text.length > 0) &&
              !(self.passwordTextField.text && self.passwordTextField.text.length > 0))
     {
-    self.passwordTextField.layer.borderColor = _color.venetioanRed.CGColor;
+        self.passwordTextField.layer.borderColor = _color.venetioanRed.CGColor;
     }
     //empty both
     else {
@@ -250,7 +250,7 @@
         self.passwordTextField.text = @"";
         self.loginTextFiled.text = @"";
         for (UIButton *value in self.passcodeButtons) {
-             value.enabled = YES;
+            value.enabled = YES;
         }
         [self.view endEditing:NO];
         [self viewDidLoad];
@@ -265,7 +265,7 @@
     
     NSString *textFromLabel = [self.passcodeLabel text];
     NSLog(@"%@", [textFromLabel substringToIndex:1]);
-
+    
     if ([textFromLabel hasPrefix:@"_"]){
         textFromLabel = buttomValue;
         self.passcodeString = textFromLabel;
@@ -277,7 +277,7 @@
             if (([self.passcodeString isEqual:_correctPasscode]) && ([self.passcodeString length] == [_correctPasscode length])){
                 for (UIButton *value in self.passcodeButtons)
                 {
-                     value.enabled = NO;
+                    value.enabled = NO;
                 }
                 self.passcode.layer.borderColor = _color.turquoiseGreen.CGColor;
                 [self InformativeAlertWithmsg];
