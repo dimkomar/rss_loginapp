@@ -34,7 +34,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4DM-s7-YCa">
-                    <rect key="frame" x="36" y="203" width="306.5" height="34"/>
+                    <rect key="frame" x="36" y="240" width="306.5" height="34"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="303" id="6XL-tX-AgB"/>
                     </constraints>
@@ -46,7 +46,7 @@
                     </connections>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JHS-Yy-aR0">
-                    <rect key="frame" x="36" y="267" width="303" height="34"/>
+                    <rect key="frame" x="36" y="304" width="303" height="34"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="303" id="eOu-2z-tjN"/>
                     </constraints>
@@ -82,7 +82,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
                             <state key="normal" title="1"/>
                             <connections>
-                                <action selector="passcodeButtonOneAction:" destination="-1" eventType="touchUpInside" id="taR-h7-inL"/>
+                                <action selector="oneAction:" destination="-1" eventType="touchUpInside" id="svy-Ub-Mmr"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t9T-qe-1Rv">
@@ -93,11 +93,11 @@
                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
                             <state key="normal" title="3"/>
                             <connections>
-                                <action selector="passcodeButtonThreeAction:" destination="-1" eventType="touchUpInside" id="6r0-wr-3IN"/>
+                                <action selector="threeAction:" destination="-1" eventType="touchUpInside" id="SHV-kY-X9V"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oav-ge-f1B">
-                            <rect key="frame" x="105.5" y="15" width="29.5" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oav-ge-f1B">
+                            <rect key="frame" x="105.5" y="15" width="29.5" height="0.0"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="29.5" id="yJd-j5-1ii"/>
                             </constraints>
@@ -113,7 +113,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
                             <state key="normal" title="2"/>
                             <connections>
-                                <action selector="passcodeButtonTwoAction:" destination="-1" eventType="touchUpInside" id="oFQ-Tl-ASp"/>
+                                <action selector="twoAction:" destination="-1" eventType="touchUpInside" id="DKS-Oi-AYN"/>
                             </connections>
                         </button>
                     </subviews>
@@ -139,9 +139,9 @@
                 <constraint firstItem="4Gl-CO-vS1" firstAttribute="centerX" secondItem="pXX-lr-DSc" secondAttribute="centerX" id="6nF-Wg-qxv"/>
                 <constraint firstItem="4Gl-CO-vS1" firstAttribute="top" secondItem="pXX-lr-DSc" secondAttribute="bottom" constant="67" id="7EU-hQ-uWt"/>
                 <constraint firstItem="4DM-s7-YCa" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="36" id="Fbe-pG-ZPB"/>
+                <constraint firstItem="pXX-lr-DSc" firstAttribute="top" secondItem="JHS-Yy-aR0" secondAttribute="bottom" constant="60" id="LnG-y2-cDI"/>
                 <constraint firstItem="JHS-Yy-aR0" firstAttribute="top" secondItem="4DM-s7-YCa" secondAttribute="bottom" constant="30" id="Oic-LX-DQa"/>
                 <constraint firstItem="Jrj-O9-Rww" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="80" id="PTN-KP-ykJ"/>
-                <constraint firstItem="4DM-s7-YCa" firstAttribute="top" secondItem="Jrj-O9-Rww" secondAttribute="bottom" constant="80" id="PqX-tx-6gV"/>
                 <constraint firstItem="JHS-Yy-aR0" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="36" id="fhZ-eX-ojR"/>
                 <constraint firstItem="4Gl-CO-vS1" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="69" id="nAx-uj-il1"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="4Gl-CO-vS1" secondAttribute="bottom" constant="50" id="o6M-9j-Fmc"/>
