@@ -13,6 +13,7 @@
 		72BDB87B268E654E00A56682 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BDB87A268E654E00A56682 /* main.m */; };
 		72BDB88A268E6DCE00A56682 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BDB888268E6DCE00A56682 /* LoginViewController.m */; };
 		72BDB88B268E6DCE00A56682 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72BDB889268E6DCE00A56682 /* LoginViewController.xib */; };
+		72E61B4D2691EBC700093265 /* Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E61B4C2691EBC700093265 /* Colors.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		72BDB887268E6DCE00A56682 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		72BDB888268E6DCE00A56682 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		72BDB889268E6DCE00A56682 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		72E61B4B2691EBC700093265 /* Colors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
+		72E61B4C2691EBC700093265 /* Colors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Colors.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 				72BDB887268E6DCE00A56682 /* LoginViewController.h */,
 				72BDB888268E6DCE00A56682 /* LoginViewController.m */,
 				72BDB889268E6DCE00A56682 /* LoginViewController.xib */,
+				72E61B4B2691EBC700093265 /* Colors.h */,
+				72E61B4C2691EBC700093265 /* Colors.m */,
 			);
 			path = RSSLoginForm;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72BDB86A268E654B00A56682 /* AppDelegate.m in Sources */,
+				72E61B4D2691EBC700093265 /* Colors.m in Sources */,
 				72BDB87B268E654E00A56682 /* main.m in Sources */,
 				72BDB88A268E6DCE00A56682 /* LoginViewController.m in Sources */,
 			);

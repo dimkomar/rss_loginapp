@@ -6,22 +6,24 @@
 //
 
 #import "LoginViewController.h"
+#import "Colors.h"
 
 
 @interface LoginViewController ()
+
+
+//authorize block
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;
 @property (weak, nonatomic) IBOutlet UITextField *loginTextFiled;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *authorizeButton;
-
-@property (strong, nonatomic) NSMutableString* passcodeString;
-
+- (IBAction)authorizeButtonAction:(id)sender;
 - (IBAction)loginEditingDidBegin:(id)sender;
 - (IBAction)passwordEditingDidBegin:(id)sender;
 
 
+//passcode block
 @property (weak, nonatomic) IBOutlet UIView *passcode;
-
 @property (weak, nonatomic) IBOutlet UILabel *passcodeLabel;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *passcodeButtons;
 - (IBAction)oneAction:(id)sender;
@@ -29,129 +31,130 @@
 - (IBAction)threeAction:(id)sender;
 
 
-- (IBAction)authorizeButtonAction:(id)sender;
-- (void)textFiledStateActive: (id)state;
-- (void)textFiledStateError: (IBOutlet)error;
-- (void)textFiledStateSuccess: (IBOutlet)success;
+//default value
+@property (strong, nonatomic) NSString* passcodeString;
+@property (strong, nonatomic) NSString* correctUsername;
+@property (strong, nonatomic) NSString* correctPassword;
+@property (strong, nonatomic) NSString* correctPasscode;
+
+
 
 //keyboard
 - (void)subscribeOnKeyboardEvents;
 - (void)updateTopContraintWith:(CGFloat) constant andBottom:(CGFloat) bottomConstant;
 - (void)hideWhenTappedAround;
 
+
+//additional objects
+@property (strong, nonatomic) Colors *color;
+
+
 @end
 
 
 
 // MARK: - Controller implemetation
-
 @implementation LoginViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //set default value
+    _correctUsername = @"1";
+    _correctPassword = @"1";
+    _passcodeString = @"_";
+    _correctPasscode = @"132";
+    
+    //create color object
+    _color = [[Colors alloc]init];
+    
     // Subscrube on keyboard events
     [self subscribeOnKeyboardEvents];
     [self hideWhenTappedAround];
-    
-    UIColor *blackCoral = [UIColor colorWithRed: 0.30 green: 0.36 blue: 0.41 alpha: 1.00];
-    UIColor *turquoiseGreen = [UIColor colorWithRed: 0.57 green: 0.78 blue: 0.69 alpha: 1.00];
-    UIColor *venetioanRed = [UIColor colorWithRed: 0.76 green: 0.00 blue: 0.08 alpha: 1.00];
-    UIColor *black = [UIColor colorWithRed: 0.00 green: 0.00 blue: 0.00 alpha: 1.00];
-    UIColor *littleBoyBlue = [UIColor colorWithRed: 0.50 green: 0.64 blue: 0.93 alpha: 1.00];
 
     //setup text label
     self.textLabel.adjustsFontSizeToFitWidth = YES;
     
     //setup login textfiled
-    self.loginTextFiled.layer.borderColor = blackCoral.CGColor;
+    self.loginTextFiled.layer.borderColor = _color.blackCoral.CGColor;
     self.loginTextFiled.layer.borderWidth = 1.5;
     self.loginTextFiled.layer.cornerRadius = 5;
 
     //setup password textfield
-    self.passwordTextField.layer.borderColor = blackCoral.CGColor;
+    self.passwordTextField.layer.borderColor = _color.blackCoral.CGColor;
     self.passwordTextField.layer.borderWidth = 1.5;
     self.passwordTextField.layer.cornerRadius = 5;
     
     //setup button
     [self.authorizeButton setTitle:@"Authorize" forState:UIControlStateNormal];
-    [self.authorizeButton setTitleColor:littleBoyBlue forState:UIControlStateNormal];
-    self.authorizeButton.titleLabel.layer.borderColor = littleBoyBlue.CGColor;
-    self.authorizeButton.layer.borderColor = littleBoyBlue.CGColor;
+    [self.authorizeButton setTitleColor:_color.littleBoyBlue forState:UIControlStateNormal];
+    self.authorizeButton.titleLabel.layer.borderColor = _color.littleBoyBlue.CGColor;
+    self.authorizeButton.layer.borderColor = _color.littleBoyBlue.CGColor;
     self.authorizeButton.layer.borderWidth = 1.5;
     self.authorizeButton.layer.cornerRadius = 5;
     
     //setup passcode view
-    self.passcode.layer.borderColor = blackCoral.CGColor;
+    self.passcode.layer.borderColor = _color.white.CGColor;
     self.passcode.layer.borderWidth = 1.5;
     self.passcode.layer.cornerRadius = 5;
     self.passcode.hidden = YES;
     
     //setup passcode textLabel
-    self.passcodeString = @"_";
     [self.passcodeLabel setText:_passcodeString];
     
     //setup passcode buttons
     for (UIButton *value in self.passcodeButtons)
     {
-        [value setTitleColor:littleBoyBlue forState:UIControlStateNormal];
-        [value setTitleColor:littleBoyBlue forState:UIControlStateNormal];
-        value.layer.borderColor = littleBoyBlue.CGColor;
+        [value setTitleColor:_color.littleBoyBlue forState:UIControlStateNormal];
+        [value setTitleColor:_color.littleBoyBlue forState:UIControlStateNormal];
+        value.layer.borderColor = _color.littleBoyBlue.CGColor;
         value.layer.borderWidth = 1.5;
         value.layer.cornerRadius = value.frame.size.height/2;
         value.layer.masksToBounds = true;
     }
- 
-    
-
-    
-    
-    
 }
 
-//method of button action
+
+
+// MARK: - Methods implemetation
+
+//authorize button action implementation
 - (IBAction)authorizeButtonAction:(id)sender {
-    
-    
-    NSString * userName = self.loginTextFiled.text;
-    NSString * passwordTextField = self.passwordTextField.text;
-    
+
+    NSString *inputtedUsername = self.loginTextFiled.text;
+    NSString *inputtedPassword = self.passwordTextField.text;
     
     if ((self.loginTextFiled.text && self.loginTextFiled.text.length > 0) &&
         (self.passwordTextField.text && self.passwordTextField.text.length > 0))
     {
         //if username and password a correct
-        if ([userName isEqualToString:@" "] && [passwordTextField isEqualToString:@" "]){
-
+        if ([inputtedUsername isEqualToString:_correctUsername] && [inputtedPassword isEqualToString:_correctPassword]){
             self.passcode.hidden = NO;
             self.loginTextFiled.enabled = NO;
             self.authorizeButton.enabled = NO;
             self.authorizeButton.layer.opacity = 0.5;
-            self.loginTextFiled.layer.borderColor = [UIColor colorWithRed: 0.57 green: 0.78 blue: 0.69 alpha: 1.00].CGColor;
+            self.loginTextFiled.layer.borderColor = _color.turquoiseGreen.CGColor;
             self.loginTextFiled.layer.opacity = 0.5;
             self.passwordTextField.enabled = NO;
-            self.passwordTextField.layer.borderColor = [UIColor colorWithRed: 0.57 green: 0.78 blue: 0.69 alpha: 1.00].CGColor;
+            self.passwordTextField.layer.borderColor = _color.turquoiseGreen.CGColor;
             self.passwordTextField.layer.opacity = 0.5;
             [self.view endEditing:YES];
-            
-            
-
-            
-            
-            NSLog(@"круто все верно");
         }
         //incorrect login
-        else if (![userName isEqualToString:@"username"] && [passwordTextField isEqualToString:@"password"]) {
-            self.loginTextFiled.layer.borderColor = [UIColor colorWithRed: 0.76 green: 0.00 blue: 0.08 alpha: 1.00].CGColor;
+        else if (![inputtedUsername isEqualToString:_correctUsername] &&
+                 [inputtedPassword isEqualToString:_correctPassword]) {
+            self.loginTextFiled.layer.borderColor = _color.venetioanRed.CGColor;
         }
         //incorrect password
-        else if ([userName isEqualToString:@"username"] && ![passwordTextField isEqualToString:@"password"]) {
-            self.passwordTextField.layer.borderColor = [UIColor colorWithRed: 0.76 green: 0.00 blue: 0.08 alpha: 1.00].CGColor;
+        else if ([inputtedUsername isEqualToString:_correctUsername] &&
+                 ![inputtedPassword isEqualToString:_correctPassword]) {
+            self.passwordTextField.layer.borderColor = _color.venetioanRed.CGColor;
         }
         //both incorrect
-        else if (![userName isEqualToString:@"username"] && ![passwordTextField isEqualToString:@"password"])  {
-            self.loginTextFiled.layer.borderColor = [UIColor colorWithRed: 0.76 green: 0.00 blue: 0.08 alpha: 1.00].CGColor;
-            self.passwordTextField.layer.borderColor = [UIColor colorWithRed: 0.76 green: 0.00 blue: 0.08 alpha: 1.00].CGColor;
+        else if (![inputtedUsername isEqualToString:_correctUsername] &&
+                 ![inputtedPassword isEqualToString:_correctPassword])  {
+            self.loginTextFiled.layer.borderColor = _color.venetioanRed.CGColor;
+            self.passwordTextField.layer.borderColor = _color.venetioanRed.CGColor;
         }
         
     }
@@ -159,21 +162,22 @@
     else if (!(self.loginTextFiled.text && self.loginTextFiled.text.length > 0) &&
              (self.passwordTextField.text && self.passwordTextField.text.length > 0))
     {
-        self.loginTextFiled.layer.borderColor = [UIColor colorWithRed: 0.76 green: 0.00 blue: 0.08 alpha: 1.00].CGColor;
+        self.loginTextFiled.layer.borderColor = _color.venetioanRed.CGColor;
     }
     //empty password
     else if ((self.loginTextFiled.text && self.loginTextFiled.text.length > 0) &&
              !(self.passwordTextField.text && self.passwordTextField.text.length > 0))
     {
-    self.passwordTextField.layer.borderColor = [UIColor colorWithRed: 0.76 green: 0.00 blue: 0.08 alpha: 1.00].CGColor;
+    self.passwordTextField.layer.borderColor = _color.venetioanRed.CGColor;
     }
     //empty both
     else {
-        self.loginTextFiled.layer.borderColor = [UIColor colorWithRed: 0.76 green: 0.00 blue: 0.08 alpha: 1.00].CGColor;
-        self.passwordTextField.layer.borderColor = [UIColor colorWithRed: 0.76 green: 0.00 blue: 0.08 alpha: 1.00].CGColor;
+        self.loginTextFiled.layer.borderColor = _color.venetioanRed.CGColor;
+        self.passwordTextField.layer.borderColor = _color.venetioanRed.CGColor;
     }
 }
 
+//passcode button implementation
 - (IBAction)threeAction:(id)sender {
     [self checkPasscodeLogic:@"3"];
 }
@@ -189,33 +193,27 @@
 
 //check textfield and password field
 - (IBAction)passwordEditingDidBegin:(id)sender {
-    self.passwordTextField.layer.borderColor = [UIColor colorWithRed: 0.30 green: 0.36 blue: 0.41 alpha: 1.00].CGColor;
+    self.passwordTextField.layer.borderColor = _color.blackCoral.CGColor;
     self.passwordTextField.text = @"";
 }
 
 - (IBAction)loginEditingDidBegin:(id)sender {
-    self.loginTextFiled.layer.borderColor = [UIColor colorWithRed: 0.30 green: 0.36 blue: 0.41 alpha: 1.00].CGColor;
+    self.loginTextFiled.layer.borderColor = _color.blackCoral.CGColor;
     self.loginTextFiled.text = @"";
 }
 
 -(void)InformativeAlertWithmsg
 {
-    UIAlertController * alertvc = [UIAlertController alertControllerWithTitle: @ "Welcome!"
-                                    message: nil preferredStyle: UIAlertControllerStyleAlert
-                                   ];
-     UIAlertAction * action = [UIAlertAction actionWithTitle: @ "Refresh"
-                               style: UIAlertActionStyleDefault handler: ^ (UIAlertAction * _Nonnull action) {
-                                 NSLog(@ "Refresh Tapped");
-                               }
-                              ];
+    UIAlertController *alertvc = [UIAlertController alertControllerWithTitle: @"Welcome" message: @"You are successfuly authorized!" preferredStyle: UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle: @"Refresh" style: UIAlertActionStyleDefault handler: nil];
     alertvc.view.tintColor = [UIColor redColor];
-     [alertvc addAction: action];
-     [self presentViewController: alertvc animated: true completion: nil];
+    [alertvc addAction: action];
+    [self presentViewController: alertvc animated: true completion: nil];
 }
 
 //method lable declaration
 - (void)checkPasscodeLogic:(NSString*) buttomValue {
-    NSString *correctPasscode = @"132";
+    
     NSString *textFromLabel = [self.passcodeLabel text];
     NSLog(@"%@", [textFromLabel substringToIndex:1]);
 
@@ -227,14 +225,16 @@
         if ([self.passcodeString length] < 3){
             self.passcodeString = [NSString stringWithFormat:@"%@%@", self.passcodeString, buttomValue];
             [self.passcodeLabel setText:self.passcodeString];
-            if (([self.passcodeString isEqual:correctPasscode]) && ([self.passcodeString length] == 3)){
+            if (([self.passcodeString isEqual:_correctPasscode]) && ([self.passcodeString length] == 3)){
                 for (UIButton *value in self.passcodeButtons)
                 {
                      value.enabled = NO;
                 }
+                self.passcode.layer.borderColor = _color.turquoiseGreen.CGColor;
                 NSLog(@"WIN");
                 [self InformativeAlertWithmsg];
-            } else if (([self.passcodeString length] == 3) && ![self.passcodeString isEqual:correctPasscode]){
+            } else if (([self.passcodeString length] == 3) && ![self.passcodeString isEqual:_correctPasscode]){
+                self.passcode.layer.borderColor = _color.venetioanRed.CGColor;
                 self.passcodeString = @"_";
                 [self.passcodeLabel setText:self.passcodeString];
                 NSLog(@"END");
@@ -245,9 +245,6 @@
 
     
 }
-
-
-
 
 @end
 
