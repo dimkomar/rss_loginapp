@@ -66,8 +66,9 @@
                         <constraint firstAttribute="width" constant="156" id="5dG-Cl-Pwc"/>
                         <constraint firstAttribute="height" constant="42" id="aFW-JC-v7i"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="25" maxY="0.0"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                    <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
                     <state key="normal" title="Authorize" image="user">
                         <color key="titleColor" systemColor="systemBlueColor"/>
                     </state>
