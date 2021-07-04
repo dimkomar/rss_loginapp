@@ -9,7 +9,7 @@
 #import "Colors.h"
 
 
-@interface LoginViewController ()
+@interface LoginViewController () <UITextFieldDelegate>
 
 
 //authorize block
@@ -60,8 +60,8 @@
     [super viewDidLoad];
     
     //set default value
-    _correctUsername = @"1";
-    _correctPassword = @"1";
+    _correctUsername = @"username";
+    _correctPassword = @"password";
     _passcodeString = @"_";
     _correctPasscode = @"132";
     
@@ -112,6 +112,9 @@
         value.layer.cornerRadius = value.frame.size.height/2;
         value.layer.masksToBounds = true;
     }
+
+    self.loginTextFiled.delegate = self;
+    self.passwordTextField.delegate = self;
 }
 
 
@@ -212,10 +215,10 @@
         self.loginTextFiled.enabled = YES;
         self.authorizeButton.enabled = YES;
         self.authorizeButton.layer.opacity = 1.0;
-        self.loginTextFiled.layer.borderColor = _color.blackCoral.CGColor;
+        self.loginTextFiled.layer.borderColor = self->_color.blackCoral.CGColor;
         self.loginTextFiled.layer.opacity = 1.0;
         self.passwordTextField.enabled = YES;
-        self.passwordTextField.layer.borderColor = _color.blackCoral.CGColor;
+        self.passwordTextField.layer.borderColor = self->_color.blackCoral.CGColor;
         self.passwordTextField.layer.opacity = 1.0;
         self.passwordTextField.text = @"";
         self.loginTextFiled.text = @"";
@@ -260,11 +263,14 @@
                 NSLog(@"END");
             }
         }
-        
     }
-
-    
 }
+
+//UITextField delegate methods
+- (void)textFieldShouldReturn:(UITextField *)anyTextField {
+    [self.view endEditing:true];
+}
+
 
 @end
 
@@ -318,8 +324,6 @@
     [UIView animateWithDuration:0.2 animations:^{
         [self.view layoutIfNeeded];
     }];
-    
-
 }
 
 @end
