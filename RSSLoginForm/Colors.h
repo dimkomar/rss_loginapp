@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) UIColor *venetioanRed;
 @property (strong, nonatomic) UIColor *black;
 @property (strong, nonatomic) UIColor *littleBoyBlue;
+@property (strong, nonatomic) UIColor *littleBoyBlueTouchDownBackgroundButton;
+@property (strong, nonatomic) UIColor *littleBoyBlueTouchDownBackgroundText;
 @property (strong, nonatomic) UIColor *white;
 
 @end
