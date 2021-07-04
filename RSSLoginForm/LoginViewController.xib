@@ -37,9 +37,10 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4DM-s7-YCa">
-                    <rect key="frame" x="36" y="240" width="306.5" height="34"/>
+                    <rect key="frame" x="36" y="236" width="306.5" height="36"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="303" id="6XL-tX-AgB"/>
+                        <constraint firstAttribute="height" constant="36" id="aJP-v1-9ZP"/>
                     </constraints>
                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -49,8 +50,9 @@
                     </connections>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JHS-Yy-aR0">
-                    <rect key="frame" x="36" y="304" width="306.5" height="34"/>
+                    <rect key="frame" x="36" y="302" width="306.5" height="36"/>
                     <constraints>
+                        <constraint firstAttribute="height" constant="36" id="E5Q-as-K9f"/>
                         <constraint firstAttribute="width" constant="303" id="eOu-2z-tjN"/>
                     </constraints>
                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
