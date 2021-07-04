@@ -67,7 +67,7 @@
     [super viewDidLoad];
     
     //set default value
-    _correctUsername = @"login";
+    _correctUsername = @"username";
     _correctPassword = @"password";
     _passcodeString = @"_";
     _correctPasscode = @"1 3 2";
