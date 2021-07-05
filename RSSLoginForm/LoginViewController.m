@@ -139,11 +139,14 @@
         else if (![inputtedUsername isEqualToString:_correctUsername] &&
                  [inputtedPassword isEqualToString:_correctPassword]) {
             self.loginTextFiled.layer.borderColor = _color.venetioanRed.CGColor;
+            self.passwordTextField.layer.borderColor = _color.turquoiseGreen.CGColor;
         }
         //incorrect password
         else if ([inputtedUsername isEqualToString:_correctUsername] &&
                  ![inputtedPassword isEqualToString:_correctPassword]) {
             self.passwordTextField.layer.borderColor = _color.venetioanRed.CGColor;
+            self.loginTextFiled.layer.borderColor = _color.turquoiseGreen.CGColor;
+
         }
         //both incorrect
         else if (![inputtedUsername isEqualToString:_correctUsername] &&
@@ -219,7 +222,7 @@
 
 -(void)InformativeAlertWithmsg
 {
-    UIAlertController *alertvc = [UIAlertController alertControllerWithTitle: @"Welcome" message: @"You are successfuly authorized!" preferredStyle: UIAlertControllerStyleAlert];
+    UIAlertController *alertvc = [UIAlertController alertControllerWithTitle: @"Welcome" message: @"You are successfuly authorized! \n   " preferredStyle: UIAlertControllerStyleAlert];
     UIAlertAction *action = [UIAlertAction actionWithTitle: @"Refresh" style: UIAlertActionStyleDefault handler: ^(UIAlertAction * action) {
         
         //should rewrite logic of refresh
@@ -239,7 +242,7 @@
 
 //method lable declaration
 - (void)checkPasscodeLogic:(NSString*) buttomValue {
-    
+    self.passcode.layer.borderColor = _color.white.CGColor;
     NSString *textFromLabel = [self.passcodeLabel text];
     NSLog(@"%@", [textFromLabel substringToIndex:1]);
     
