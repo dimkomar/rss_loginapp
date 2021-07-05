@@ -294,10 +294,20 @@
 }
 
 //UITextField delegate methods
-- (void)textFieldShouldReturn:(UITextField *)anyTextField {
-    [self.view endEditing:true];
-}
+//uncommend if whant to hide keyboard for both field
+//- (void)textFieldShouldReturn:(UITextField *)anyTextField {
+//    [self.view endEditing:true];
+//}
 
+//return button logic
+- (BOOL)textFieldShouldReturn:(UITextField *)anyTextField {
+        if (self.loginTextFiled.isFirstResponder) {
+            [self.passwordTextField becomeFirstResponder];
+        } else {
+            [self.passwordTextField resignFirstResponder];
+        }
+    return YES;
+}
 
 @end
 
