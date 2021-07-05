@@ -154,11 +154,14 @@
         else if (![inputtedUsername isEqualToString:_correctUsername] &&
                  [inputtedPassword isEqualToString:_correctPassword]) {
             self.loginTextFiled.layer.borderColor = _color.venetioanRed.CGColor;
+            self.passwordTextField.layer.borderColor = _color.turquoiseGreen.CGColor;
         }
         //incorrect password
         else if ([inputtedUsername isEqualToString:_correctUsername] &&
                  ![inputtedPassword isEqualToString:_correctPassword]) {
             self.passwordTextField.layer.borderColor = _color.venetioanRed.CGColor;
+            self.loginTextFiled.layer.borderColor = _color.turquoiseGreen.CGColor;
+
         }
         //both incorrect
         else if (![inputtedUsername isEqualToString:_correctUsername] &&
