@@ -82,17 +82,8 @@
     //setup text label
     self.textLabel.adjustsFontSizeToFitWidth = YES;
     
-    //setup login textfiled
-    self.loginTextFiled.layer.borderColor = _color.blackCoral.CGColor;
-    self.loginTextFiled.layer.borderWidth = 1.5;
-    self.loginTextFiled.layer.cornerRadius = 5;
-    self.loginTextFiled.keyboardType = UIKeyboardTypeASCIICapable;
-    
-    //setup password textfield
-    self.passwordTextField.layer.borderColor = _color.blackCoral.CGColor;
-    self.passwordTextField.layer.borderWidth = 1.5;
-    self.passwordTextField.layer.cornerRadius = 5;
-    self.passwordTextField.keyboardType = UIKeyboardTypeASCIICapable;
+    //setup login and password
+    [self textAndLoginFiledReadyState];
     
     //setup authorize button
     [self.authorizeButton setTitle:@"Authorize" forState:UIControlStateNormal];
@@ -140,14 +131,8 @@
         //if username and password a correct
         if ([inputtedUsername isEqualToString:_correctUsername] && [inputtedPassword isEqualToString:_correctPassword]){
             self.passcode.hidden = NO;
-            self.loginTextFiled.enabled = NO;
             self.authorizeButton.enabled = NO;
             self.authorizeButton.layer.opacity = 0.5;
-            self.loginTextFiled.layer.borderColor = _color.turquoiseGreen.CGColor;
-            self.loginTextFiled.layer.opacity = 0.5;
-            self.passwordTextField.enabled = NO;
-            self.passwordTextField.layer.borderColor = _color.turquoiseGreen.CGColor;
-            self.passwordTextField.layer.opacity = 0.5;
             [self.view endEditing:YES];
         }
         //incorrect login
@@ -239,16 +224,8 @@
         
         //should rewrite logic of refresh
         self.passcode.hidden = YES;
-        self.loginTextFiled.enabled = YES;
         self.authorizeButton.enabled = YES;
         self.authorizeButton.layer.opacity = 1.0;
-        self.loginTextFiled.layer.borderColor = self->_color.blackCoral.CGColor;
-        self.loginTextFiled.layer.opacity = 1.0;
-        self.passwordTextField.enabled = YES;
-        self.passwordTextField.layer.borderColor = self->_color.blackCoral.CGColor;
-        self.passwordTextField.layer.opacity = 1.0;
-        self.passwordTextField.text = @"";
-        self.loginTextFiled.text = @"";
         for (UIButton *value in self.passcodeButtons) {
             value.enabled = YES;
         }
@@ -294,6 +271,38 @@
 - (void)textFieldShouldReturn:(UITextField *)anyTextField {
     [self.view endEditing:true];
 }
+
+// MARK: - state setings
+
+- (void)textAndLoginFiledReadyState{
+    //setup login password textfiled
+    self.loginTextFiled.layer.borderColor = _color.blackCoral.CGColor;
+    self.loginTextFiled.layer.borderWidth = 1.5;
+    self.loginTextFiled.layer.cornerRadius = 5;
+    self.loginTextFiled.keyboardType = UIKeyboardTypeASCIICapable;
+    self.loginTextFiled.enabled = YES;
+    self.loginTextFiled.layer.opacity = 1.0;
+    self.passwordTextField.enabled = YES;
+    self.passwordTextField.layer.opacity = 1.0;
+    self.passwordTextField.text = @"";
+    self.loginTextFiled.text = @"";
+    self.passwordTextField.layer.borderColor = _color.blackCoral.CGColor;
+    self.passwordTextField.layer.borderWidth = 1.5;
+    self.passwordTextField.layer.cornerRadius = 5;
+    self.passwordTextField.keyboardType = UIKeyboardTypeASCIICapable;
+}
+- (void)textAndLoginFiledErrorState{
+    
+}
+- (void)textAndLoginFiledSuccessState{
+    self.loginTextFiled.enabled = NO;
+    self.loginTextFiled.layer.borderColor = _color.turquoiseGreen.CGColor;
+    self.loginTextFiled.layer.opacity = 0.5;
+    self.passwordTextField.enabled = NO;
+    self.passwordTextField.layer.borderColor = _color.turquoiseGreen.CGColor;
+    self.passwordTextField.layer.opacity = 0.5;
+}
+
 
 
 @end
