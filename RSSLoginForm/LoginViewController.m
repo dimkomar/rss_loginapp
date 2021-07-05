@@ -237,7 +237,7 @@
 
 -(void)InformativeAlertWithmsg
 {
-    UIAlertController *alertvc = [UIAlertController alertControllerWithTitle: @"Welcome" message: @"You are successfuly authorized! \n   " preferredStyle: UIAlertControllerStyleAlert];
+    UIAlertController *alertvc = [UIAlertController alertControllerWithTitle: @"Welcome" message: @"You are successfuly authorized!" preferredStyle: UIAlertControllerStyleAlert];
     UIAlertAction *action = [UIAlertAction actionWithTitle: @"Refresh" style: UIAlertActionStyleDefault handler: ^(UIAlertAction * action) {
         
         //should rewrite logic of refresh
